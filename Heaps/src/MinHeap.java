@@ -1,9 +1,9 @@
 import java.util.*;
 
-public class Heap<T extends Comparable<T>> {
+public class MinHeap<T extends Comparable<T>> {
     private ArrayList<T> list;
 
-    public Heap(){
+    public MinHeap(){
         list = new ArrayList<>();
     }
 
@@ -36,7 +36,7 @@ public class Heap<T extends Comparable<T>> {
             return;
         }
         int p = parent(index);
-        if(list.get(p).compareTo(list.get(index)) < 0){
+        if(list.get(p).compareTo(list.get(index)) > 0){
             swap(p,index);
             upheap(p);
         }
@@ -73,6 +73,18 @@ public class Heap<T extends Comparable<T>> {
 
         if (min != index){
             swap(min,index);
+            downheap(min);
         }
+
+    }
+
+    public ArrayList<T> heapSort() throws Exception{
+        ArrayList<T> data = new ArrayList<>();
+
+        while (!list.isEmpty()){
+            data.add(this.remove());
+        }
+
+        return data;
     }
 }
