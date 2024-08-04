@@ -75,8 +75,29 @@ public class GenericHashMap<K,V> {
         }
 
         size--;
-        assert target != null;  //If target is null , it will throw an exception.
+//        assert target != null;  //If target is null , it will throw an exception.
         return target.value;
+    }
+
+    public boolean containsKey(K key){
+        return get(key) != null;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("{");
+        for (LinkedList<Entity> entities : list){
+            for (Entity entity : entities){
+                builder.append(entity.key);
+                builder.append(" = ");
+                builder.append(entity.value);
+                builder.append(",");
+            }
+        }
+        builder.append("}");
+        return builder.toString();
+
     }
 
     public class Entity{
