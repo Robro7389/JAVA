@@ -83,6 +83,13 @@ public class GenericHashMap<K,V> {
         return get(key) != null;
     }
 
+    public V getOrDefault(K key,V value){
+        if (get(key) != null){
+            return get(key);
+        }
+        return value;
+    }
+
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();

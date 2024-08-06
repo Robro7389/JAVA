@@ -9,7 +9,7 @@ public class CountSortHash {
     }
 
     public static void countSort(int[] arr){
-        HashMap<Integer,Integer> map = new HashMap<>();
+        GenericHashMap<Integer,Integer> map = new GenericHashMap<>();
         int max = Arrays.stream(arr).max().getAsInt();
         int min = Arrays.stream(arr).min().getAsInt();
 
@@ -18,7 +18,7 @@ public class CountSortHash {
         }
 
         int index = 0;
-        for (int i = min; i <= max ; i++) {
+        for (int i = min; i <= max; i++) {
             int count = map.getOrDefault(i,0);
             for (int j = 0; j < count; j++) {
                 arr[index] = i;
