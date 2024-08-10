@@ -8,8 +8,8 @@ public class HuffmanCoder{
     
     //Two hashmaps to represent two tables:Encoder and decoder.
     
-    HashMap<Character,String> encoder;
-    HashMap<String,Character> decoder;
+    public HashMap<Character,String> encoder;
+    public HashMap<String,Character> decoder;
     
     //A min heap of nodes that will help to get the smallest node values.
     
@@ -23,6 +23,8 @@ public class HuffmanCoder{
         public Node(char data,int cost){
             this.data = data;
             this.cost = cost;
+            this.left = null;
+            this.right = null;
         }
 
         @Override
@@ -45,8 +47,6 @@ public class HuffmanCoder{
         Set<Map.Entry<Character, Integer>> nodeEntry = fmap.entrySet();
         for (Map.Entry<Character, Integer> entry : nodeEntry) {
             Node node = new Node(entry.getKey(), entry.getValue());
-            node.left = null;
-            node.right = null;
             minHeap.insert(node);
         }
 
